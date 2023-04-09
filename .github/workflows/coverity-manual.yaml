@@ -14,4 +14,4 @@ jobs:
           tar czvf analysis_input.tgz cov-int
           curl --form _5PXI3ZAJ4wN2hGlCdZhJA --form email=csbon420@protonmail.com --form file=@./apps/app-helloworld/analysis_input.tgz --form version=1 --form description="Using github actions first try" https://scan.coverity.com/builds?project=Unikraft-Scanning
         shell: bash
-        working-directory: ./apps/app-helloworld
+        working-directory: /apps/app-helloworld
