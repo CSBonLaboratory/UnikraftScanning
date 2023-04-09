@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      -uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: main
         run: |
           wget https://scan.coverity.com/download/linux64 --post-data "token=_5PXI3ZAJ4wN2hGlCdZhJA&project=Unikraft-Scanning" -O coverity_tool.tgz
