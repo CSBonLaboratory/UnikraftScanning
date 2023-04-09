@@ -1,0 +1,9 @@
+[submodule "libs/lib-lwip"]
+	path = libs/lib-lwip
+	url = https://github.com/CSBonLaboratory/lib-lwip.git
+[submodule "apps/app-helloworld"]
+	path = apps/app-helloworld
+	url = git@github.com:CSBonLaboratory/app-helloworld.git
+[submodule "unikraft"]
+	path = unikraft
+	url = git@github.com:CSBonLaboratory/unikraft.git
