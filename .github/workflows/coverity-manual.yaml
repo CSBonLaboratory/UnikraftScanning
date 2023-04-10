@@ -6,9 +6,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+          fetch_depth: 1
+          submodules: true
       - name: main
         run: |
+          ls -a
           wget https://scan.coverity.com/download/linux64 --post-data "token=_5PXI3ZAJ4wN2hGlCdZhJA&project=Unikraft-Scanning" -O coverity_tool.tgz
           tar zxvf coverity_tool.tgz
           ./coverity_tool/bin/cov-build --dir cov-int make
