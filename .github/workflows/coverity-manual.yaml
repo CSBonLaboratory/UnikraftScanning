@@ -15,6 +15,8 @@ jobs:
         run: |
           ls -a
           pwd
+          tar zxvf coverity_tool.tgz
+          ls -a
       - name: main
         run: |
           wget https://scan.coverity.com/download/linux64 --post-data "token=_5PXI3ZAJ4wN2hGlCdZhJA&project=Unikraft-Scanning" -O coverity_tool.tgz
