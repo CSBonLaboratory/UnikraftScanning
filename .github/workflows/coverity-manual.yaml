@@ -24,6 +24,7 @@ jobs:
           export UK_WORKDIR=/home/runner/work/UnikraftCoverity/UnikraftCoverity
           export UK_ROOT=/home/runner/work/UnikraftCoverity/UnikraftCoverity/unikraft
           export UK_LIBS=/home/runner/work/UnikraftCoverity/UnikraftCoverity/libs
+          ls -a
           cd apps
           cd app-hello-world
           ../../cov-analysis-linux64-2022.6.0/bin/cov-build --dir cov-int make
