@@ -13,8 +13,6 @@ jobs:
           submodules: true
       - name: list pepe
         run: |
-          cd apps
-          cd app-helloworld
           ls -a
           pwd
       - name: main
