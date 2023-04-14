@@ -17,6 +17,6 @@ jobs:
           pwd
       - name: main
         run: |
-          sudo ./coverity_upload.sh
+          ./coverity_upload.sh
         shell: bash
         working-directory: /home/runner/work/UnikraftCoverity/UnikraftCoverity/
