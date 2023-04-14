@@ -17,5 +17,5 @@ jobs:
           pwd
       - name: main
         run: |
-          ./coverity_upload.sh
+          sudo ./coverity_upload.sh
         shell: bash
