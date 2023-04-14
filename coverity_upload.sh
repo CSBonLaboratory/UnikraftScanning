@@ -1,4 +1,5 @@
-sudo cd ./apps/app-helloworld
+#!/bin/bash
+cd ./apps/app-helloworld
 wget https://scan.coverity.com/download/linux64 --post-data "token=_5PXI3ZAJ4wN2hGlCdZhJA&project=Unikraft-Scanning" -O coverity_tool.tgz
 tar zxvf coverity_tool.tgz
 export UK_WORKDIR=/home/runner/work/UnikraftCoverity/UnikraftCoverity
