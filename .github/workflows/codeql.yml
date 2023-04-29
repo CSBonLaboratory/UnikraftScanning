@@ -34,6 +34,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+          ref: main
+          fetch-depth: 1
+          submodules: true
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
