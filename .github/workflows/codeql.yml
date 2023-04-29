@@ -54,6 +54,7 @@ jobs:
       run: |
           echo "Run, Build Application using script"
           cd ./apps/app-helloworld
+          pwd
           make
     - uses: github/codeql-action/analyze@v2
       with:
