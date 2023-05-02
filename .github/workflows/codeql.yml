@@ -56,12 +56,13 @@ jobs:
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
     - name: Autobuild
-      run: |
-          echo "Run, Build Application using script"
-          cd ./apps/app-helloworld
-          pwd
-          ls -a
-          make
+      uses: github/codeql-action/autobuild@v2
+#       run: |
+#           echo "Run, Build Application using script"
+#           cd ./apps/app-helloworld
+#           pwd
+#           ls -a
+#           make
     - uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
