@@ -18,7 +18,7 @@ try:
     options.set_preference("browser.download.dir","/home/runner/work/UnikraftScanning/UnikraftScanning")
     options.set_preference("browser.download.useDownloadDir", True)
     # options.binary = FirefoxBinary("~/Desktop/firefox/firefox-bin")
-    browser = webdriver.Firefox()
+    browser = webdriver.Firefox(options=options)
     # profile = FirefoxProfile()
     # profile.set_preference("browser.download.dir","~/Desktop/basic_coverity")
     # browser = FirefoxBinary("~/Desktop/firefox/firefox-bin")
