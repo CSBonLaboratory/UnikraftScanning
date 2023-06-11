@@ -13,10 +13,10 @@ FIREFOX_PATH = "/snap/bin/firefox"
 
 try:
 
-    #options = Options()
-    #options.add_argument("--headless")
-    # options.set_preference("browser.download.dir","~/Desktop/basic_coverity")
-    # options.set_preference("browser.download.useDownloadDir", True)
+    options = Options()
+    options.add_argument("--headless")
+    options.set_preference("browser.download.dir","/home/runner/work/UnikraftScanning/UnikraftScanning")
+    options.set_preference("browser.download.useDownloadDir", True)
     # options.binary = FirefoxBinary("~/Desktop/firefox/firefox-bin")
     browser = webdriver.Firefox()
     # profile = FirefoxProfile()
