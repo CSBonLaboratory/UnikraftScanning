@@ -18,8 +18,8 @@ jobs:
       - name: main
         run: |
           sudo apt install -y python3
-          sudo apt install firefox
-          sudo apt install python3-pip
+          sudo apt install -y firefox
+          sudo apt install -y python3-pip
           python3 -m pip install selenium
           python3 -m pip install webdriver-manager
           which firefox
