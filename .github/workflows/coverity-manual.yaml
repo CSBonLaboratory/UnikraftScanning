@@ -17,6 +17,12 @@ jobs:
           pwd
       - name: main
         run: |
+          sudo apt install -y python3
+          sudo apt install firefox
+          sudo apt install python3-pip
+          python3 -m pip install selenium
+          python3 -m pip install webdriver-manager
+          which firefox
           ./coverity_upload.sh
         shell: bash
         working-directory: /home/runner/work/UnikraftCoverity/UnikraftCoverity/
