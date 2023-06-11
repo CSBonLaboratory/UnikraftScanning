@@ -25,5 +25,7 @@ jobs:
           python3 -m pip install webdriver-manager
           which firefox
           ./coverity_upload.sh
+          python3 scrape_coverity_csv_browser.py
+          cat OutStanding*
         shell: bash
         working-directory: /home/runner/work/UnikraftScanning/UnikraftScanning/
