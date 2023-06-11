@@ -11,11 +11,12 @@ jobs:
           ref: main
           fetch-depth: 1
           submodules: true
-      - name: list pepe
-        run: |
-          ls -a
-          pwd
       - name: main
+        env:
+          COVERITY_SCRAPER_USER_EMAIL: ${{ secrets.COVERITY_SCRAPER_USER_EMAIL }}
+          COVERITY_SCRAPER_PASS: ${{ secrets.COVERITY_SCRAPER_PASS }}
+          COVERITY_PROJECT_NAME: ${{ secrets.COVERITY_PROJECT_NAME }}
+          COVERITY_UPLOAD_TOKEN: ${{ secrets.COVERITY_UPLOAD_TOKEN }}
         run: |
           sudo apt install -y python3
           sudo apt install -y firefox
