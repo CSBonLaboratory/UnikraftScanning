@@ -25,4 +25,4 @@ jobs:
           which firefox
           ./coverity_upload.sh
         shell: bash
-        working-directory: /home/runner/work/UnikraftCoverity/UnikraftCoverity/
+        working-directory: /home/runner/work/UnikraftScanning/UnikraftScanning/
