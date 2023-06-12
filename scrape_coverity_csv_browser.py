@@ -16,8 +16,8 @@ try:
 
     options = Options()
     options.add_argument("--headless")
-    options.set_preference("browser.download.dir","/home/runner/work/UnikraftScanning/UnikraftScanning")
-    options.set_preference("browser.download.useDownloadDir", True)
+    # options.set_preference("browser.download.dir","~/Desktop/basic_coverity")
+    # options.set_preference("browser.download.useDownloadDir", True)
     # options.binary = FirefoxBinary("~/Desktop/firefox/firefox-bin")
     browser = webdriver.Firefox(options=options)
     # profile = FirefoxProfile()
@@ -57,24 +57,24 @@ try:
     browser.switch_to.window(browser.window_handles[1])
     print("Switching to second tab in browser where defects are OK")
 
-    WebDriverWait(browser, 40).until(EC.presence_of_element_located((By.XPATH, "//*[@id='views-button']")))
+    WebDriverWait(browser, 40).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='views-button']")))
     browser.find_element(By.XPATH, "//*[@id='views-button']").click()
     print("Entering more options menu OK")
     
-
-    
     action = ActionChains(browser)
 
-    WebDriverWait(browser,40).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a')))
+    time.sleep(5)
+
+    WebDriverWait(browser,40).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a')))
     outstanding_issues = browser.find_element(By.XPATH, '/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a')
     action.move_to_element(outstanding_issues)
     print("Hover mouse over Outstanding Defects tab OK")
-    
+
     time.sleep(5)
-    
-    WebDriverWait(browser,120).until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span')))
+
+    WebDriverWait(browser,40).until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span')))
     browser.find_element(By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span').click()
-    print("Click on more optionns in Outstanding Defects OK")
+    print("Click on more options in Outstanding Defects OK")
 
     WebDriverWait(browser,40).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ui-menu-item-exportcsv"]')))
     browser.find_element(By.XPATH, '//*[@id="ui-menu-item-exportcsv"]').click()
