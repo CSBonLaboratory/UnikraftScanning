@@ -16,8 +16,11 @@ try:
 
     options = Options()
     options.add_argument("--headless")
-    options.set_preference("browser.download.dir","~/Downloads/")
+    options.set_preference("browser.download.folderList", 2)
+    options.set_preference("browser.download.dir","~/")
+    options.set_preference("browser.download.manager.showWhenStarting", False)
     options.set_preference("browser.download.useDownloadDir", True)
+    options.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream")
     # options.binary = FirefoxBinary("~/Desktop/firefox/firefox-bin")
     browser = webdriver.Firefox(options=options)
     # profile = FirefoxProfile()
@@ -79,6 +82,8 @@ try:
     WebDriverWait(browser,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ui-menu-item-exportcsv"]')))
     browser.find_element(By.XPATH, '//*[@id="ui-menu-item-exportcsv"]').click()
     print("Click on export CSV OK")
+    
+    time.sleep(10)
 
     print("Finished")
 
