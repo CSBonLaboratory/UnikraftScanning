@@ -6,6 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import os
+import time
 USER_EMAIL = os.environ["COVERITY_SCRAPER_USER_EMAIL"]
 USER_PASS = os.environ["COVERITY_SCRAPER_PASS"]
 PROJECT_NAME = os.environ["COVERITY_PROJECT_NAME"]
@@ -68,7 +69,9 @@ try:
     outstanding_issues = browser.find_element(By.XPATH, '/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a')
     action.move_to_element(outstanding_issues)
     print("Hover mouse over Outstanding Defects tab OK")
-
+    
+    time.sleep(5)
+    
     WebDriverWait(browser,40).until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span')))
     browser.find_element(By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span').click()
     print("Click on more optionns in Outstanding Defects OK")
