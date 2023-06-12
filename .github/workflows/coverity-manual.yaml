@@ -28,6 +28,6 @@ jobs:
           ./coverity_upload.sh
           python3 scrape_coverity_csv_browser.py
           locate Outstanding+Issues.csv
-          cat ~/Downloads/OutStanding*
+          ls -lrt ~/
         shell: bash
         working-directory: /home/runner/work/UnikraftScanning/UnikraftScanning/
