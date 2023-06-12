@@ -16,8 +16,8 @@ try:
 
     options = Options()
     options.add_argument("--headless")
-    # options.set_preference("browser.download.dir","~/Desktop/basic_coverity")
-    # options.set_preference("browser.download.useDownloadDir", True)
+    options.set_preference("browser.download.dir","~/Downloads/")
+    options.set_preference("browser.download.useDownloadDir", True)
     # options.binary = FirefoxBinary("~/Desktop/firefox/firefox-bin")
     browser = webdriver.Firefox(options=options)
     # profile = FirefoxProfile()
