@@ -17,7 +17,7 @@ try:
     options = Options()
     options.add_argument("--headless")
     options.set_preference("browser.download.folderList", 2)
-    options.set_preference("browser.download.dir","~/")
+    options.set_preference("browser.download.dir","/home/runner/work/UnikraftScanning/UnikraftScanning/")
     options.set_preference("browser.download.manager.showWhenStarting", False)
     options.set_preference("browser.download.useDownloadDir", True)
     options.set_preference("browser.helperApps.neverAsk.saveToDisk", "text/csv;charset=UTF-8")
