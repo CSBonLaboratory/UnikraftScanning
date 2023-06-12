@@ -21,6 +21,7 @@ jobs:
           sudo apt install -y python3
           sudo apt install -y firefox
           sudo apt install -y python3-pip
+          sudo apt install locate
           python3 -m pip install selenium
           python3 -m pip install webdriver-manager
           which firefox
