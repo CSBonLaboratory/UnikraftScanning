@@ -20,7 +20,7 @@ try:
     options.set_preference("browser.download.dir","~/")
     options.set_preference("browser.download.manager.showWhenStarting", False)
     options.set_preference("browser.download.useDownloadDir", True)
-    options.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream")
+    options.set_preference("browser.helperApps.neverAsk.saveToDisk", "text/csv;charset=UTF-8")
     # options.binary = FirefoxBinary("~/Desktop/firefox/firefox-bin")
     browser = webdriver.Firefox(options=options)
     # profile = FirefoxProfile()
