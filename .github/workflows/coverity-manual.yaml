@@ -27,6 +27,9 @@ jobs:
           which firefox
           ./coverity_upload.sh
           python3 scrape_coverity_csv_browser.py
+          echo "||||||||||||||||||||||||||||"
+          locate Outstanding+Issues.csv
+          echo "||||||||||||||||||||||||||||"
           ls -lrta ~/
         shell: bash
         working-directory: /home/runner/work/UnikraftScanning/UnikraftScanning/
