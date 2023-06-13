@@ -75,7 +75,7 @@ try:
 
     time.sleep(5)
 
-    WebDriverWait(browser,20).until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span')))
+    WebDriverWait(browser,20).until(EC.visibility_of_element_located((By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span')))
     browser.find_element(By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span').click()
     print("Click on more options in Outstanding Defects OK")
 
