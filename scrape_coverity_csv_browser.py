@@ -55,9 +55,13 @@ try:
 
     browser.find_element(By.XPATH,"//a[@href='/projects/unikraft-scanning/view_defects']").click()
     print("Entering defects tab OK")
-
+    
+    original_window = browser.current_window_handle
     WebDriverWait(browser, 40).until(EC.number_of_windows_to_be(2))
-    browser.switch_to.window(browser.window_handles[1])
+    if browser.window_handles[1] != original_window:
+        browser.switch_to.window(browser.window_handles[1])
+    else:
+        browser.switch_to.window(browser.window_handles[0])
     print("Switching to second tab in browser where defects are OK")
 
     WebDriverWait(browser, 40).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='views-button']")))
