@@ -60,7 +60,7 @@ try:
     browser.switch_to.window(browser.window_handles[1])
     print("Switching to second tab in browser where defects are OK")
 
-    WebDriverWait(browser, 40).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='views-button']")))
+    WebDriverWait(browser, 40).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='views-button']")))
     browser.find_element(By.XPATH, "//*[@id='views-button']").click()
     print("Entering more options menu OK")
     
