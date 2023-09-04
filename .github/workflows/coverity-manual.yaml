@@ -18,11 +18,12 @@ jobs:
           COVERITY_PROJECT_NAME: ${{ secrets.COVERITY_PROJECT_NAME }}
           COVERITY_UPLOAD_TOKEN: ${{ secrets.COVERITY_UPLOAD_TOKEN }}
         run: |
+          sudo snap remove firefox
           sudo apt install -y python3
           sudo apt install -y python3-pip
           sudo apt install locate
           sudo add-apt-repository ppa:mozillateam/ppa
-          sudo apt install -y firefox
+          sudo apt install -t 'o=LP-PPA-mozillateam' -y firefox
           python3 -m pip install selenium
           python3 -m pip install webdriver-manager
           python3 -m pip install selenium-wire
