@@ -29,11 +29,11 @@ jobs:
           python3 -m pip install selenium-wire
           which firefox
           locate firefox
-          # ./coverity_upload.sh
-          # python3 scrape_coverity_csv_browser.py
-          # echo "||||||||||||||||||||||||||||"
-          # locate Outstanding+Issues.csv
-          # echo "||||||||||||||||||||||||||||"
-          # ls -lrta ~/
+          ./coverity_upload.sh
+          python3 scrape_coverity_csv_browser.py
+          echo "||||||||||||||||||||||||||||"
+          locate Outstanding+Issues.csv
+          echo "||||||||||||||||||||||||||||"
+          ls -lrta ~/
         shell: bash
         working-directory: /home/runner/work/UnikraftScanning/UnikraftScanning/
