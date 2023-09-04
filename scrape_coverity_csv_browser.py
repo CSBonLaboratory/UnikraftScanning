@@ -12,12 +12,13 @@ import time
 USER_EMAIL = os.environ["COVERITY_SCRAPER_USER_EMAIL"]
 USER_PASS = os.environ["COVERITY_SCRAPER_PASS"]
 PROJECT_NAME = os.environ["COVERITY_PROJECT_NAME"]
-FIREFOX_PATH = "/snap/bin/firefox"
+FIREFOX_PATH = "/usr/bin/firefox"
 
 try:
 
     options = Options()
     options.add_argument("--headless")
+    options.bin = FirefoxBinary("/usr/bin/firefox")
     browser = webdriver.Firefox(options=options)
    
     print("Starting Firefox")
