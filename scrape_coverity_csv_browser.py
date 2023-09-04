@@ -1,10 +1,12 @@
-from selenium import webdriver
+#from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from seleniumwire import webdriver
+from seleniumwire.utils import decode
 import os
 import time
 USER_EMAIL = os.environ["COVERITY_SCRAPER_USER_EMAIL"]
@@ -17,23 +19,12 @@ try:
     options = Options()
     options.add_argument("--headless")
     options.set_preference("browser.download.folderList", 2)
-    options.set_preference("browser.download.dir","/home/runner/work/UnikraftScanning/UnikraftScanning/")
+    options.set_preference("browser.download.dir","/home/karakitay/Desktop/basic_coverity")
     options.set_preference("browser.download.manager.showWhenStarting", False)
     options.set_preference("browser.download.useDownloadDir", True)
     options.set_preference("browser.helperApps.neverAsk.saveToDisk", "text/csv;charset=UTF-8")
-    # options.binary = FirefoxBinary("~/Desktop/firefox/firefox-bin")
     browser = webdriver.Firefox(options=options)
-    # profile = FirefoxProfile()
-    # profile.set_preference("browser.download.dir","~/Desktop/basic_coverity")
-    # browser = FirefoxBinary("~/Desktop/firefox/firefox-bin")
-
-    # browser.launch_browser(profile= profile)
-    
-    
-    
-    #print(browser.options.__dict__)
-
-    
+   
     print("Starting Firefox")
     browser.get('https://scan.coverity.com/users/sign_in')
     user_email_input = browser.find_element(By.ID,"user_email")
@@ -48,8 +39,6 @@ try:
 
     print("Authentication OK")
 
-    
-
     browser.find_element(By.LINK_TEXT, PROJECT_NAME).click()
     print("Entering project overview OK")
 
@@ -58,42 +47,24 @@ try:
     
     original_window = browser.current_window_handle
     WebDriverWait(browser, 40).until(EC.number_of_windows_to_be(2))
+    time.sleep(10)
     if browser.window_handles[1] != original_window:
         browser.switch_to.window(browser.window_handles[1])
     else:
         browser.switch_to.window(browser.window_handles[0])
     print("Switching to second tab in browser where defects are OK")
-
-    WebDriverWait(browser, 40).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='views-button']")))
-    browser.find_element(By.XPATH, "//*[@id='views-button']").click()
-    print("Entering more options menu OK")
     
-    action = ActionChains(browser)
-
-    time.sleep(5)
-
-    WebDriverWait(browser,20).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a')))
-    outstanding_issues = browser.find_element(By.XPATH, '/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a')
-    action.move_to_element(outstanding_issues)
-    print("Hover mouse over Outstanding Defects tab OK")
-
-    time.sleep(5)
-
-    WebDriverWait(browser,20).until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span')))
-    browser.find_element(By.XPATH,'/html/body/div[2]/nav/div[1]/div/div[1]/ul/li[3]/a/span').click()
-    print("Click on more options in Outstanding Defects OK")
-
-    WebDriverWait(browser,20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ui-menu-item-exportcsv"]')))
-    browser.find_element(By.XPATH, '//*[@id="ui-menu-item-exportcsv"]').click()
-    print("Click on export CSV OK")
-    
-    time.sleep(10)
-
-    print("Finished")
+    browser.get("https://scan9.scan.coverity.com/reports/table.json?projectId=15201&viewId=54998")
+    for request in browser.requests:
+        if request.url == 'https://scan9.scan.coverity.com/reports/table.json?projectId=15201&viewId=54998':
+            if request.response:
+                body = decode(request.response.body, request.response.headers.get('Content-Encoding', 'identity'))
+                print(body)
 
 
 finally:
     try:
         browser.close()
     except:
+        
         pass
