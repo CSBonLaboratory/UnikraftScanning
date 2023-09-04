@@ -18,11 +18,6 @@ try:
 
     options = Options()
     options.add_argument("--headless")
-    options.set_preference("browser.download.folderList", 2)
-    options.set_preference("browser.download.dir","/home/karakitay/Desktop/basic_coverity")
-    options.set_preference("browser.download.manager.showWhenStarting", False)
-    options.set_preference("browser.download.useDownloadDir", True)
-    options.set_preference("browser.helperApps.neverAsk.saveToDisk", "text/csv;charset=UTF-8")
     browser = webdriver.Firefox(options=options)
    
     print("Starting Firefox")
