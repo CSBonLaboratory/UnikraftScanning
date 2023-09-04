@@ -28,7 +28,6 @@ jobs:
           python3 -m pip install webdriver-manager
           python3 -m pip install selenium-wire
           which firefox
-          locate firefox
           ./coverity_upload.sh
           python3 scrape_coverity_csv_browser.py
           echo "||||||||||||||||||||||||||||"
