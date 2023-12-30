@@ -7,3 +7,6 @@
 [submodule "unikraft"]
 	path = unikraft
 	url = git@github.com:CSBonLaboratory/unikraft.git
+[submodule "libs/lib-musl"]
+	path = libs/lib-musl
+	url = https://github.com/CSBonLaboratory/lib-musl.git
